@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/attoparser-2.0.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/javassist-3.20.0-GA.jar"/>
+	<classpathentry kind="lib" path="lib/javax.servlet-api-3.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-http-9.3.6.v20151106.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-io-9.3.6.v20151106.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-security-9.3.6.v20151106.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-server-9.3.6.v20151106.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-servlet-9.3.6.v20151106.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-util-9.3.6.v20151106.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-webapp-9.3.6.v20151106.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-xml-9.3.6.v20151106.jar"/>
+	<classpathentry kind="lib" path="lib/logback-classic-1.2.3.jar"/>
+	<classpathentry kind="lib" path="lib/logback-core-1.2.3.jar"/>
+	<classpathentry kind="lib" path="lib/ognl-3.1.12.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.6.6.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.7.25.jar"/>
+	<classpathentry kind="lib" path="lib/spark-core-2.5.5.jar"/>
+	<classpathentry kind="lib" path="lib/spark-template-thymeleaf-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/thymeleaf-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/thymeleaf-extras-java8time-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/unbescape-1.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/websocket-api-9.3.6.v20151106.jar"/>
+	<classpathentry kind="lib" path="lib/websocket-client-9.3.6.v20151106.jar"/>
+	<classpathentry kind="lib" path="lib/websocket-common-9.3.6.v20151106.jar"/>
+	<classpathentry kind="lib" path="lib/websocket-server-9.3.6.v20151106.jar"/>
+	<classpathentry kind="lib" path="lib/websocket-servlet-9.3.6.v20151106.jar"/>
+	<classpathentry kind="output" path="out/production/ChatBOT"/>
+</classpath>

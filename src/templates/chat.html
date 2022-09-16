@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+    <style>
+        body{
+            background-color: #190221;
+
+
+        }
+div{
+    color: #ebeef5;
+    height: auto;
+}
+        a:hover{
+            color: #7a00ff;
+        }
+      .choice {
+        border: solid 1px #ccc;
+        border-radius: 10px;
+        border-color: red;
+        color: red;
+        font-weight:bold;
+        margin: 4px;
+        padding: 2px 6px;
+        display: inline-block;
+        cursor: pointer;
+        }
+
+  /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+
+
+
+/* Animation
+// -------------------------------------- */
+@keyframes show-chat-even {
+    0% {
+        margin-left: -480px;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
+@-moz-keyframes show-chat-even {
+    0% {
+        margin-left: -480px;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
+@-webkit-keyframes show-chat-even {
+    0% {
+        margin-left: -480px;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
+@keyframes show-chat-odd {
+    0% {
+        margin-right: -480px;
+    }
+    100% {
+        margin-right: 0;
+    }
+}
+
+@-moz-keyframes show-chat-odd {
+    0% {
+        margin-right: -480px;
+    }
+    100% {
+        margin-right: 0;
+    }
+}
+
+@-webkit-keyframes show-chat-odd {
+    0% {
+        margin-right: -480px;
+    }
+    100% {
+        margin-right: 0;
+    }
+}
+    div{
+    font-weight: bold;}
+    </style>
+
+</head>
+<body>
+<script language="JavaScript" type="text/javascript"  src="script.js"></script>
+<div class="m-4">
+    <div id="conversatie">
+        <div>Bine ati venit la LEO'S DEALERSHIP, sunt aici pentru dumneavoastra.</div>
+        <div>Cu ce va pot ajuta?</div>
+         <div>
+
+             <a onclick="alegerea(this)" data-choice="info" class="choice">As dori cateva informatii suplimentare despre acest serviciu.</a>
+             <a onclick="alegerea(this)" data-choice="cautare" class="choice">Sunt in cautarea unei noi masini, ce probleme pot aparea?</a>
+             <a onclick="alegerea(this)" data-choice="oferta" class="choice" style=" border: solid 1px purple; border-radius: 10px; border-color: purple;color: orange; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Serviciu Clienti/Asistenta unui operator.</a>
+             <a onclick="alegerea(this)" data-choice="oferta" class="choice" style=" border: solid 1px purple; border-radius: 10px; border-color: purple;color: orange; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Doresc o alta oferta.</a>
+             <a onclick="alegerea(this)" data-choice="nelamuriri" class="choice">Am o alta intrebare care nu se regaseste aici.</a>
+        </div>
+    </div>
+</div>
+
+<!--marcile de masina-->
+
+
+<div style="display: none;">
+<div class="m-5">
+    <div id="marca">
+        <div>Ce marca de masina v-ati dori?</div>
+        <div>
+            <a onclick="marca(this)" data-choice="audi" class="choice">Audi</a>
+            <a onclick="marca(this)" data-choice="bmw" class="choice">BMW</a>
+            <a onclick="marca(this)" data-choice="mercedes" class="choice">Mercedes</a>
+            <a onclick="marca(this)" data-choice="vw" class="choice">VW</a>
+            <a onclick="marca(this)" data-choice="seat" class="choice">Seat</a>
+            <a onclick="marca(this)" data-choice="skoda" class="choice">Skoda</a>
+            <a onclick="marca(this)" data-choice="ford" class="choice">Ford</a>
+            <a onclick="marca(this)" data-choice="toyota" class="choice">Toyota</a>
+            <a onclick="marca(this)" data-choice="porche" class="choice">Porche</a>
+            <a onclick="marca(this)" data-choice="oferta" class="choice" style=" border: solid 1px purple; border-radius: 10px; border-color: purple;color: orange; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Doresc informatii despre alta masina.</a>
+            </div>
+    </div>
+</div>
+</div>
+
+<!-- lista de masini dupa marca -->
+
+<!-- vw masini toate -->
+<div style="display: none;">
+    <div class="m-5">
+        <div id="vw">
+            <div>Pentru mai multe detalii  și informații suplimentare puteti accesa "serviciu clienti/cere oferta" .</div>
+            <div>
+                <a onclick="vw(this)" data-choice="golf6gti2009" class="choice" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;"> VW Golf 6 GTI Model 2009-2013, are un pret în jur de 10.000€  </a>
+                <a onclick="vw(this)" data-choice="golf7" class="choice" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">VW Golf 7 Model 2013-2017, are un pret în jur de 7.000-18.000€</a>
+                <a onclick="vw(this)" data-choice="passatb8" class="choice" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">VW Passat b8 Model 2015-prezent, are un pret în jur de 11.000-18500€</a>
+                <a onclick="vw(this)" data-choice="jettagli" class="choice" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">VW Jeta MK6 Model 2009-2013, are un pret în jur de 6.000-10.000€</a>
+                <a onclick="vw(this)" data-choice="arteon" class="choice" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">VW Arteon Model 2017-prezent 2.0TS, are un pret în jur de 30000€</a>
+                <a onclick="vw(this)" data-choice="golf6gti2013" class="choice" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">VW Golf 6 Model 2009-2013, are un pret în jur de 5.000-8.000€</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="golf6gti2009">
+            <div>Probleme frecvente:</div>
+            <div>Golfurile 6 gti sunt masini fiabile, daca au avut schimburile facute la timp.Probleme, cheltuieli care pot aparea în viitor la o mașină second-hand:distribuția, ambreiajul, pompa de apă, valva pcv,scaunul șoferului se rupe, iar plafonul cade dupa 150.000km.</div>
+            <div>Aceste mașini pot să fie modificate, deoarece sunt cumpărate de pasionați.</div>
+            <div>Din anul 2009 Golful 6 vine cu park assist, suspensii reglabile pe duritate, senzori de presiune, temperatură ulei, navigație,încălzire în scaune, alarmă cu senzor de mișcare, lumini automate și senzori de ploaie.</div>
+            <div>Poze informative:</div>
+            <img src="back.jpg"width="200" height="300">
+            <img src="golfrosu.jpg"width="200" height="300">
+            <img src="interiorgolf6.jpg"width="200" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="golf7">
+            <div>Probleme frecvente:</div>
+            <div>În primul rând vine cu o fiabilitate mult superioară modelului anterior. S-a lucrat intens pe partea de motoare, de transmisie, dar și de calitate generală a interiorului.</div>
+            <div>Sunt în continuare probleme la cutiile DSG cu ambreiaj uscat, diverse probleme pe partea de navigație, chederele portierelor sunt de o calitate îndoielnica, consum de ulei la motoarele 2.0 tsi, dpf. </div>
+            <div>Vrei un golf mai elegant?Asta este raspunsul.</div>
+            <div>Poze informative:</div>
+            <img src="golf7fata.jpg"width="150" height="100">
+            <img src="golf7spate.jpg"width="150" height="100">
+            <img src="interiorgolf7.jpg"width="150" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="passatb8">
+            <div>Probleme frecvente:</div>
+            <div>Passat-urile b8 sunt masini fiabile, daca au avut schimburile facute la timp.Probleme, cheltuieli care pot aparea în viitor la o mașină second-hand:distribuția, ambreiajul, pompa de apă, valva pcv, dpf, dupa 2013 s-a rezolvat și problema consumului de ulei, cateva probleme legate de transmisia manuală.</div>
+            <div>Probleme generale:Pentru motoarele diesel ramane in continuare problema volantei cu masa dubla care se uzeaza mai repede decat ti-ai dori. Asta inseamna atat uzura masinii cat si uzura portofelului, iar in cazurile exceptionale volanta poate lua si cutia de viteze cu ea.
+                Probleme serioase la franele pe spate, unde discurile si placutele ori ruginesc ori se uzeaza dupa doar 50 de metri de condus. Asta se intampla pentru ca soferul tipic de Passat B8 mergea prea incet ca sa puna franele spate la treaba.
+                O tema recurenta de pe Passat B6 revine si pe generatia a 8-a si anume la frana electronica de parcare. Iarasi sunt probleme la frana electronica si in special sunt probleme la cele cu functia de Auto-Hold.
+                Cutia automata DSG7 DQ200 iarasi e subiectul problemelor si a cuvintelor de sanatate demne de Peluza Sud. Mare grija la schimbul de ulei si filtru si aprinde o lumanare din cand in cand pentru a nu se strica Mecatronicul.</div>
+            <div>Aveți grijă la dotări,pentru ca de cele mai multe ori, anunturile cu aceste mașini nu sunt cele mai verosimile.</div>
+            <div>Poze informative:</div>
+            <img src="passatfata.jpg"width="300" height="300">
+            <img src="passatspate.jpg"width="300" height="300">
+            <img src="passatinterior.jpg"width="300" height="300">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="jettagli">
+            <div>Probleme frecvente:</div>
+            <div>Jetta Mk6  sunt masini fiabile, daca au avut schimburile facute la timp.Probleme, cheltuieli care pot aparea în viitor la o mașină second-hand:distribuția, ambreiajul, pompa de apă, valva pcv, dpf, dupa 2013 s-a rezolvat și problema consumului de ulei, cateva probleme legate de transmisia manuală.</div>
+            <div>Din anul 2009 Jetta vine cu park assist, suspensii reglabile pe duritate, senzori de presiune, temperatură ulei, navigație,încălzire în scaune, alarmă cu senzor de mișcare, lumini automate și senzori de ploaie.</div>
+            <div>Probleme generale:Pentru motoarele diesel ramane in continuare problema volantei cu masa dubla care se uzeaza mai repede decat ti-ai dori. Asta inseamna atat uzura masinii cat si uzura portofelului, iar in cazurile exceptionale volanta poate lua si cutia de viteze cu ea.
+                Probleme serioase la franele pe spate, unde discurile si placutele ori ruginesc ori se uzeaza dupa doar 50 de metri de condus. Asta se intampla pentru ca soferul tipic de Passat B8 mergea prea incet ca sa puna franele spate la treaba.
+                O tema recurenta de pe Passat B6 revine si pe generatia a 8-a si anume la frana electronica de parcare. Iarasi sunt probleme la frana electronica si in special sunt probleme la cele cu functia de Auto-Hold.
+                Cutia automata DSG7 DQ200 iarasi e subiectul problemelor. Mare grija la schimbul de ulei si filtru, Mecatronicul se mai poate strica.</div>
+            <div>Aveți grijă la dotări,pentru ca de cele mai multe ori, anunturile cu aceste mașini nu sunt cele mai verosimile.</div>
+            <div>Poze informative:</div>
+            <img src="jettafata.jpg"width="300" height="200">
+            <img src="jettaspate.jpg"width="300" height="200">
+            <img src="jettainterior.jpg"width="300" height="200">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="arteon">
+            <div>Probleme frecvente:</div>
+            <div>Arteon-urile sunt masini fiabile, daca au avut schimburile facute la timp.Probleme, cheltuieli care pot aparea în viitor la o mașină second-hand:distribuția, ambreiajul, pompa de apă, valva pcv, dpf, cateva probleme legate de transmisia manuală.</div>
+            <div>Probleme generale:Pentru motoarele diesel ramane in continuare problema volantei cu masa dubla care se uzeaza mai repede decat ti-ai dori. Asta inseamna atat uzura masinii cat si uzura portofelului, iar in cazurile exceptionale volanta poate lua si cutia de viteze cu ea.
+                Probleme serioase la franele pe spate, unde discurile si placutele ori ruginesc ori se uzeaza dupa doar 50 de metri de condus. Asta se intampla pentru ca soferul tipic de Arteon mergea prea incet ca sa puna franele spate la treaba.
+                O tema recurenta de pe Passat B8 revine si pe Arteon si anume la frana electronica de parcare. Iarasi sunt probleme la frana electronica si in special sunt probleme la cele cu functia de Auto-Hold.
+                Cutia automata DSG7 DQ200 iarasi e subiectul problemelor. Mare grija la schimbul de ulei si filtru, Mecatronicul se mai poate strica.</div>
+            <div>Aveți grijă la dotări,pentru ca de cele mai multe ori, anunturile cu aceste mașini nu sunt cele mai verosimile.</div>
+            <div>Poze informative:</div>
+            <img src="arteonfata.jpg"width="300" height="200">
+            <img src="arteonspate.jpg"width="300" height="200">
+            <img src="arteoninterior.jpg"width="300" height="200">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="golf6gti2013">
+            <div>Probleme frecvente:</div>
+            <div>Golfurile 6  sunt masini fiabile, daca au avut schimburile facute la timp.Probleme, cheltuieli care pot aparea în viitor la o mașină second-hand:distribuția, ambreiajul, pompa de apă, valva pcv, ambreiajul la diesel, scaunul soferului de rupe foarte repede și plafonul cade. </div>
+            <div>Din anul 2009 Golful 6 vine cu park assist, suspensii reglabile pe duritate, senzori de presiune, temperatură ulei, navigație,încălzire în scaune, alarmă cu senzor de mișcare, lumini automate și senzori de ploaie.</div>
+            <div>Poze informative:</div>
+            <img src="back.jpg"width="200" height="300">
+            <img src="golfrosu.jpg"width="200" height="300">
+            <img src="interiorgolf6.jpg"width="200" height="100">
+        </div>
+    </div>
+</div>
+
+
+<!-- skoda masini -->
+<div style="display: none;">
+    <div class="m-5">
+        <div id="skoda">
+
+            <div>Pentru mai multe detalii  și informații suplimentare puteti accesa "serviciu clienti/cere oferta" .</div>
+            <div>
+                <a onclick="skoda(this)" data-choice="skodaOctavia" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Skoda Octavia lll Model 2013-prezent, are un pret în jur de 7.000-24.000€</a>
+                <a onclick="skoda(this)" data-choice="skodaSuperb" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Skoda Superb Model 2008-2015, are un pret în jur de 5.500-14.000€</a>
+                <a onclick="skoda(this)" data-choice="skodaYeti" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Skoda Yeti Model 2009-2017, are un pret în jur de 5.000-13.000€</a>
+                <a onclick="skoda(this)" data-choice="skodaFabia" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Skoda Fabia  Model 2014-2020, are un pret în jur de 4.000-12.000€</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="skodaOctavia">
+            <div>Probleme frecvente:</div>
+            <div>Cutia de viteze DSG7 este notorie pentru probleme. Are nevoie de schimbari regulate de ulei (60.000km sau 6 ani), iar cutiile problematice smucesc atunci cand schimba vitezele.
+                Partea electrica are mici probleme peste tot.
+                Motoarele diesel vin toate echipate cu filtru de particule. Foarte important de luat in calcul in cazul in care ai de gand sa conduci mai mult de 2 metri in oras. </div>
+            <div>In comparatie cu Octavia versiunea a 2-a aceasta a fost facuta mai ieftina, plasticele scartaie, geamurile lafel, consuma ulei ca toate masinile din grupul VAG.  </div>
+            <div>Poze informative:</div>
+            <img src="octaviafata.jpg"width="300" height="200">
+            <img src="octaviaspate.jpg"width="300" height="200">
+            <img src="octaviainterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="skodaSuperb">
+            <div>Probleme frecvente:</div>
+            <div>Cureaua de la alternator mai are obiceiul sa se strice, ti se aprind becuri în bord, rămai fără frâne.
+                Elementele din crom ale geamurilor laterale au fost facute slab caliativ. De aceea toate se vor deteriora. Asta daca te deranjeaza. A da, aceeasi problema este si la sigla Skoda care se exfoliaza si cateodata cade.
+                La virarea maximă a roților, stând în parcare, poți să auzi un scarțâit  În cazul în care ți se întamplă asta, trebuie schimbat uleiul de la cutia de viteze.
+                O problemă cunoscută la berline este că portabagajul nu mai poate fi deschis din interior. Asta pentru ca s-au folosit cabluri ieftine.
+                Varianta break este mai lungă decât un loc de parcare normal într-un oraș aglomerat. </div>
+            <div>Desi mai ieftină și nu asa populară,aceasta se întrece și se compară cu mașini precum:E-Klass sau A6.  </div>
+            <div>Poze informative:</div>
+            <img src="superbfata.jpg"width="300" height="200">
+            <img src="superbspate.jpg"width="300" height="200">
+            <img src="superbinterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="skodaFabia">
+            <div>Probleme frecvente:</div>
+            <div>De mentionat in schimb cutia automata DSG care a facut ravagii prin toata gama VW. Are nevoie de ulei si filtru schimbate la fiecare 60.000km si atentie mare la unitatea Mecatronic care are obiceiul sa se strice. Foarte important ca sa faci un test drive cu masina pornita la rece, ca sa poti observa smucituri ale cutiei.În rest Fabia este o mașină fiaabilă din orice punct de vedere. </div>
+            <div>Poate una dintre cele mai bune mașini de oraș.  </div>
+            <div>Ce motor recomand? Pentru benzina, clar 1.2 TSI de 90 de cai. Iar pentru diesel, nu vei ghici niciodata ce motor recomand. Si da,1.4 TDI, un telefon blackberry intr-o lume a smartphone-urilor.</div>
+            <div>Poze informative:</div>
+            <img src="fabiafata.jpg"width="300" height="200">
+            <img src="fabiaspate.jpg"width="300" height="200">
+            <img src="fabiainterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="skodaYeti">
+            <div>Probleme frecvente:</div>
+            <div>Dacă vrei masină în care să te poți baza, ia cea mai mare motorizare. Daca vrei să platești taxe mici ....cea mai mică . Cam toate sunt turbo, indiferent de carburant, din acest motiv, cam toate au același gen de probleme.Cu un plus de probleme pentru diesel la care DPF-ul suferă la mersul în oraș.Deși acum și benzinarele au DPF , dar la acestea se gestionează mai bine sistemul de regenerare și duc mai mult . Toate au probleme cu egr-ul care pare să fi devenit între timp consumabil ( si costa ) . Eu as merge pe un diesel cât mai mare. Beneficiezi de cuplu bun , consum bun. La benzină ai probleme oricum cu turbina ( ca si la diesel , ca toate au probleme dupa un timp ) , EGR-ul si DPF-ul ...dar ai consum mare. La consumul dat de producator mai adaugă cam ....60-70 % si descoperi consumul real . Daca mergi mult ( și asta nu înseamnă zeci de mii pe an ...ci peste 10.000 km ) merită diesel. Dacă mergi sub 10.000 km , ia benzina .. </div>
+            <div>Poze informative:</div>
+            <img src="yetifata.jpg"width="300" height="200">
+            <img src="yetispate.jpg"width="300" height="200">
+            <img src="yetiinterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+
+
+
+<!-- vw masini -->
+<div style="display: none;">
+    <div class="m-5">
+        <div id="bmw">
+
+            <div>Pentru mai multe detalii  și informații suplimentare puteti accesa "serviciu clienti/cere oferta" .</div>
+            <div>
+                <a onclick="bmw(this)" data-choice="bmwseria3" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">BMW Seria 3 Model 2011-2019, are un pret în jur de 9.000-16.000€</a>
+                <a onclick="bmw(this)" data-choice="bmwx3" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">BMW X3 Model 2010-2018, are un pret în jur de 8.000-30.000€</a>
+                <a onclick="bmw(this)" data-choice="bmwx5" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">BMW X5 Model 2013-2018, are un pret în jur de 8.000-30.000€</a>
+                <a onclick="bmw(this)" data-choice="bmwi3" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">BMW i3 Model 2013-prezent, are un pret în jur de 16.000-45.000€</a>
+                <a onclick="bmw(this)" data-choice="bmwseria5" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">BMW Seria 5 Model 2010-2017, are un pret în jur de 10.000-20.000€</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="bmwseria3">
+            <div>Probleme frecvente:</div>
+            <div>Spre deosebire de generatia anterioara E90 unde erau probleme
+                putine dar grave, aici sunt probleme multe dar mici.Plus ca BMW Seria 3 F30 a urcat atat de
+                mult in calitatea interioara si la optiuni incat se
+                simte ca un Seria 5 mai mic, iar pentru unii acest lucru e perfect. </div>
+            <div>Motoarele diesel cod N47 suferă de clasică problema a intinzatoarelor lanțului de distribuție, așa că au pus distribuția în spatele motorului. Cu alte cuvinte, că să schimbi distribuția și/sau intinzatoarele va trebui scos tot motorul
+                N20-ul de pe 320i și 328i suferă de probleme serioase la injectoare, ambreiaj, volantă cu masă dublă și are nevoie de ulei de cea mai înalta calitate. De fapt, toate motoarele moderne de la BMW au nevoie de ulei de cea mai înalta calitate, schimbat la 8-10.000 de km sau chiar mai devreme pentru a menține motorul în parametri de funcționare. Aceste motoare sunt construite la limita toleranței și au o marja mică de eroare. Dacă respecți regimul de schimb de ulei și foloseșți doar ce e recomandat de producător, ai parte de un motor excelent și fiabil. În special sunt vizate motoarele de după 2015, B47 respectiv B38/B48.
+                Foarte multe cazuri raportate cu probleme la cutia de viteze manuală. Cea automată e decentă atâta timp cât se face schimbul de ulei la timp, dar cutia manuală de multe ori nu face față la puterea motorului. Problema remarcată în special la 335i unde cutia manuală nu face față la cuplu și crapă.
+                Pentru motoarele în 4 cilindri până în 2013 trebuie mențiune specială pentru servofrâna . BMW a făcut rechemare pe așa ceva așa că e important să întrebi vânzătorul.
+                Compresorul A/C este situat foarte jos și poate lua pietre înainte dacă îndrăzneșți să mergi pe altceva decât asfalt. Problema pare a fi comună cu Seria 5 F10, mare grijă la drumurile cu apă pentru că poate fi afectată camera video pe față.
+                Termostatul și pompă de apă sunt alte două  componente care se strică mai des decât ți-ai dori. Fiind motoare foarte sensibile, astea două piese trebuie schimbate cât mai repede.
+                Claxonul, sau mai bine zis claxoanele iarăși au tendința de a da bir cu fugiții. Important să verifici sunetul să fie de claxon, tragerul de la capotă poate rămâne blocat și capota nu se mai poate deschide.
+                Sistemul de alarmă special marca BMW montat până în 2016 pe BMW Seria 3 F30 vine cu propriul cod de dezactivare. Asigura-te că atunci când cumperi mașînă ai și codul de la alarmă. Și că tot suntem la partea de electrice ai grijă să verifici că funcționează absolut orice buton.
+                Motoarele diesel sunt mai sensibile la drumurile scurte .Toate motoarele diesel trebuie conduse doar în afară, pe distanțe mari, altfel o să ai probleme mai grave.
+                Pentru motoarele electrice radiatorul este amplasat foarte jos și e predispus la a lua pietre și a se sparge. Radiatorul nu mai răcește cum trebuie bateriile iar sistemul hibrid de încărcare nu mai funcționează, efectiv rămâi fără sistemul hibrid. De asemenea, dacă nu e asta atunci e unitatea de încărcare KLE care se strică și bateriile nu se mai încarcă. Sistemul hibrid de pe BMW Seria 3 F30 chiar nu e reușit.</div>
+            <div>Poze informative:</div>
+            <img src="seria3fata.jpg"width="300" height="200">
+            <img src="seria3spate.jpg"width="300" height="200">
+            <img src="seria3interior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="bmwx5">
+            <div>Probleme frecvente:</div>
+<div>
+    Probleme mari pe partea de electronice, unde BMW a uitat să mai pună și izolare pe la cabluri și mufe
+    Suspensia pe perne e mai sensibilă
+    Cutia automată e „Sealed for Life”
+    Pentru cei care au tracțiune integrală la al lor BMW X5 F15 și din păcate trebuie să specific asta pentru că există și versiune doar cu tracțiune spate, mare atenție la cardanul care inevitabil va ceda
+    Mențiune specială pentru anvelope, anvelope care trebuie să aibă aceeași marca, să fie același model, să aibă aceleași dimensiuni și același grad de uzură.
+
+</div>
+            <div>Poze informative:</div>
+            <img src="x5fata.jpg"width="300" height="200">
+            <img src="x5spate.jpg"width="300" height="200">
+            <img src="x5interior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="bmwx3">
+            <div>Probleme frecvente:</div>
+        <div>Electronicele sunt o problema comună prin BMW-urile moderne, iar BMW X3 F25 a reușit cumva să scape cu puține puncta slabe. Totuși, trebuie verificate absolut toate butoanele disponibile pe mașînă.
+            Probleme la anvelope, greu de găsit și greu de digerat.
+            Cutia automată de la BMW mereu a fost în topul calității și fiabilității, doar că BMW insistă că aceste cutii nu au nevoie de mentenanță și că va ține cât mașînă. Realitatea este că trebuie făcut schimbul de ulei și filtru la fiecare 60.000 de km
+            Coloana de direcție mai dubioasă
+            Spațiu din spate este mâncat de către trenul de rulare pentru 4×4 și.  în realitate are doar 4 locuri, nu 5.
+        </div>
+            <div>Poze informative:</div>
+            <img src="x3fata.jpg"width="300" height="200">
+            <img src="x3spate.jpg"width="300" height="200">
+            <img src="x3interior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="bmwi3">
+            <div>Probleme frecvente:</div>
+        <div>Una dintre cele mai vândute mașini electrice în românia.Singurele lucruri de schimbat ar fi articulația și bateriile(după foarte mult timp). </div>
+            <div>Poze informative:</div>
+            <img src="i3fata.jpg"width="300" height="200">
+            <img src="i3spate.jpg"width="300" height="200">
+            <img src="i3interior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="bmwseria5">
+            <div>Probleme frecvente:</div>
+            <div>pompa de combustibil;
+                lanțul de distribuție;
+                senzorii;
+                scurgeri de ulei;
+                turbină;
+                injectoare;
+                bateria.
+                Probleme la anvelope, greu de găsit și greu de digerat.
+            </div>
+            <div>Poze informative:</div>
+            <img src="seria5fata.jpg"width="300" height="200">
+            <img src="seria5spate.jpg"width="300" height="200">
+            <img src="seria5interior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+
+
+
+
+<div style="display: none;">
+    <div class="m-5">
+        <div id="mercedes">
+            <div>Pentru mai multe detalii  și informații suplimentare puteti accesa "serviciu clienti/cere oferta" .</div>
+            <div>
+                <a onclick="mercedes(this)" data-choice="mercedesC" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Mercedes-Benz C Model 2014-prezent, are un pret în jur de 15.000-35.000€</a>
+                <a onclick="mercedes(this)" data-choice="mercedesE" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Mercedes-Benz E Model 2014-prezent, are un pret în jur de 15.000-35.000€</a>
+                <a onclick="mercedes(this)" data-choice="mercedesGLC" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Mercedes-Benz GLC Model 2014-prezent, are un pret în jur de 15.000-35.000€</a>
+                <a onclick="mercedes(this)" data-choice="mercedesGLE" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Mercedes-Benz GLE Model 2014-prezent, are un pret în jur de 15.000-35.000€</a>
+                <a onclick="mercedes(this)" data-choice="mercedesCLS" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Mercedes-Benz CLS Model 2010-2018, are un pret în jur de 15.000-35.000€</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="mercedesC">
+            <div>Probleme frecvente:</div>
+            <div>Foarte multe probleme pentru primele modele în ceea ce privește partea electrică. Nimic la motor,
+                dar multe probleme la restul mașinii așa că asigura-te că totul funcționează, toate butoanele.
+                Versiunea C43 AMG mănâncă anvelope și face de parcă ai călcat pe bec atunci când virezi maxim stânga sau dreapta.
+                Pentru modelele cu dieselul de 2.2 fabricate în perioada 2017-2018, mare atenție la dimensiunea rezervorului.
+                Pentru că nu au făcut rost de suficiente rezervoare de 66 de litri,
+                au montat rezervoare de 42 de litri, care erau pentru motorizările hibrid pe care oricum nu le cumpără nimeni.
+                Ce motoare recomand? Pentru benzinare recomand 2.0 Turbo de 184 de cai
+                , iar la diesel recomand clasicul 2.2 de 170 de cai. Mercedes C220 BlueTEC.
+
+            </div>
+            <div>Poze informative:</div>
+            <img src="cfata.jpg"width="300" height="200">
+            <img src="cspate.jpg"width="300" height="200">
+            <img src="cinteriror.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="mercedesE">
+            <div>Probleme frecvente:</div>
+            <div>Cutia automată G-Tronic este în continuare la fel de sensibilă.
+
+                Atenție la ulei și microfiltru care trebuiesc schimbate la fiecare 3 ani sau 60.000km.
+                Discurile și frânele de pe față se uzează mai repede
+                Problema pompei de apă, din păcate poate fi doar înlocuită, dar măcar probleme sunt mai rare decât în trecut.
+                Rugină rămâne printre noi și începe să se formeze pe la aripi și pe la praguri.
+                Modulul Hybrid este destul de sensibil iar în momentul în care are o eroare mașină nu mai pornește.
+            </div>
+            <div>Poze informative:</div>
+            <img src="efata.jpg"width="300" height="200">
+            <img src="espate.jpg"width="300" height="200">
+            <img src="einterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="mercedesGLC">
+            <div>Probleme frecvente:</div>
+            <div>Motoarele diesel vin standard cu instalație AdBlue.
+                suspensie pe perne AirMatic,din cauza umezelii pernele se vor deteriora și vor trebui schimbate eventual.
+                dacă pui jante pe 20″, anvelopele pot decedă și după doar 5000 de km de utilizare.
+
+            </div>
+            <div>Poze informative:</div>
+            <img src="glcfata.jpg"width="300" height="200">
+            <img src="glcspate.jpg"width="300" height="200">
+            <img src="glcinterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="mercedesGLE">
+            <div>Probleme frecvente:</div>
+            <div>Motoarele diesel vin standard cu instalație AdBlue.
+                suspensie pe perne AirMatic.Din cauza umezelii pernele se vor deteriora și vor trebui schimbate eventual.
+                dacă pui jante pe 20″, anvelopele pot decedă și după doar 5000 de km de utilizare.
+
+            </div>
+            <div>Poze informative:</div>
+            <img src="glcfata.jpg"width="300" height="200">
+            <img src="glcspate.jpg"width="300" height="200">
+            <img src="glcinterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="mercedesCLS">
+            <div>Probleme frecvente:</div>
+            <div> Sunt foarte bune în exterior dar foarte slabe în oraș.
+
+                Dacă le plimbi doar prin oraș vei avea probleme la filtrul de particule,
+                EGR și dacă insiști ajungi până la injectoare și în final alt motor.
+                A da, să verifici și garniturile injectoarelor.
+                Apoi, din 2014 s-a introdus și instalația AdBlue (scrie pe motorizări BlueTEC)
+                iar acolo e un alt punct slab pentru că pompă de AdBlue e mai pretențioasă.
+                În 2016 se face tranziția de la odiosul 7G-Tronic la 9G-Tronic,
+                care se pare că e mai fiabil că și transmisie automată.
+                Recomandare pentru benzină indubitabil CLS400 cu 3.0 V6 Twin-Turbo de 330 de cai,
+                iar pentru diesel CLS 350 CDI 3.0 V6, în oricare varianta.
+            </div>
+            <div>Poze informative:</div>
+            <img src="clsfata.jpg"width="300" height="200">
+            <img src="clsspate.jpg"width="300" height="200">
+            <img src="clsinterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div style="display: none;">
+    <div class="m-5">
+        <div id="porche">
+            <div>Pentru mai multe detalii  și informații suplimentare puteti accesa "serviciu clienti/cere oferta" .</div>
+            <div>
+                <a onclick="porche(this)" data-choice="panamera" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Porche Panamera Model 2009-2016, are un pret în jur de 20.000-55.000€</a>
+                <a onclick="porche(this)" data-choice="cayenne" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Porche Cayenne  Model 2009-2016, are un pret în jur de 12.000-45.000€</a>
+                <a onclick="porche(this)" data-choice="macan" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Porche Macan  Model 2014-prezent, are un pret în jur de 30.000-45.000€</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="panamera">
+            <div>Probleme frecvente:</div>
+            <div> Scurgeri de ulei.
+                Ca la Cayenne, lanțul slab de cutie de
+                transfer și uzura ambreiajelor.
+                Scurgere antigel în corpul blocului de motor diesel
+                Scurgeri de ulei - Capacul carcasei de distribuție
+
+            </div>
+            <div>Poze informative:</div>
+            <img src="panamerafata.jpg"width="300" height="200">
+            <img src="panameraspate.jpg"width="300" height="200">
+            <img src="panamerainterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="cayenne">
+            <div>Probleme frecvente:</div>
+            <div> Cea mai frecventă problemă 958 cayenne sub 15 ani este un lanț slab de cutie de
+                transfer și uzura ambreiajelor.
+                Filtru de particule DPF Porsche Cayenne motorină 4.2 litri (de fapt 4.1) V8 MCU.DB / MCU.DC și 3.0 litri
+                V6 MCR.RA. Cu călătoriile regulate pe autostradă, nu creează deloc probleme.
+                Pompă de injecție combustibil pentru motoare diesel.
+                Scurgere antigel în corpul blocului de motor diesel Porsche CASC / CRCA 3.0
+                Paletele și capacul de distribuție se scurg pe motoarele 3.0
+                Problema PTV + Porsche Torque Vectoring(diferențial spate care permite accelerarea în curbe fără răsturnare) pentru benzină.
+                Probleme sunt regăsite și la versiunile 2014+.
+            </div>
+            <div>Poze informative:</div>
+            <img src="cayennefata.jpg"width="300" height="200">
+            <img src="cayennespate.jpg"width="300" height="200">
+            <img src="cayenneinterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="macan">
+            <div>Probleme frecvente:</div>
+            <div> Probleme legate de managementul comunicațiilor Porsche (PCM).
+                Nivelul uleiului ridicat sau scăzut.
+                Defecțiunea oglinzii laterale pasager.
+                Probleme legate de camera de marșarier.
+               Ca la Cayenne  lanțul slab de cutie de
+                transfer și uzura ambreiajelor.
+                Scurgeri de ulei - Capacul carcasei de distribuție
+                Sunet de zgomot la accelerare - Defecțiune la rulmentul suportului arborelui de transmisie.
+                Scurgeri de combustibil - miros de gaz
+                Defecțiunea pompei de combustibil - CEL
+                - Cilindru mort - bobine, dopuri etc.
+            </div>
+            <div>Poze informative:</div>
+            <img src="macanfata.jpg"width="300" height="200">
+            <img src="macanspate.jpg"width="300" height="200">
+            <img src="macaninterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+
+
+<div style="display: none;">
+    <div class="m-5">
+        <div id="seat">
+            <div>Pentru mai multe detalii  și informații suplimentare puteti accesa "serviciu clienti/cere oferta" .</div>
+            <div>
+                <a onclick="seat(this)" data-choice="leon" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Seat Leon Model 2013-prezent, are un pret în jur de 7.000-25.000€</a>
+                <a onclick="seat(this)" data-choice="toledo" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Seat Toledo Model 2012-2019, are un pret în jur de 5.000-14.000€</a>
+                <a onclick="seat(this)" data-choice="ateca" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Seat Ateca Model 2016-prezent, are un pret în jur de 14.000-25.000€</a>
+                <a onclick="seat(this)" data-choice="ibiza" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Seat Ibiza Model 2008-prezent, are un pret în jur de 5.000-12.000€</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="leon">
+            <div>Probleme frecvente:</div>
+            <div> Problemele complementare la cutia automată DSG și la computer acesteia, faimosul Mechatronic.
+                motoarele 1.2 TSI și 1.5 TSI care bagă ulei în motor.
+                au făcut economie de sticlă și parbrizul e mai subțire.
+                Condensul se adună la faruri și stopuri.
+                E un VW modern, plin de tehnologie și implicit plin de probleme electronice mai mult sau mai puțin grave.
+            </div>
+            <div>Poze informative:</div>
+            <img src="leonfata.jpg"width="300" height="200">
+            <img src="leonspate.jpg"width="300" height="200">
+            <img src="leoninterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="toledo">
+            <div>Probleme frecvente:</div>
+            <div>
+                Problemele complementare la cutia automată DSG și la computer acesteia, faimosul Mechatronic.
+                motoarele 1.2 TSI și 1.5 TSI care bagă ulei în motor.
+                La motoarele mici se simte nevoia de mai multă putere pe autostradă
+                atentie la cutiile cu 5 trepte.
+                Condensul se adună la faruri și stopuri.
+            </div>
+            <div>Poze informative:</div>
+            <img src="toledofata.jpg"width="300" height="200">
+            <img src="toledospate.jpg"width="300" height="200">
+            <img src="toledointerior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="ateca">
+            <div>Probleme frecvente:</div>
+            <div> Senzorii de parcare pe ploaie nu functionează în parametrii.
+                Condensul se adună la faruri și stopuri.
+                Sunete în coloana de direcție.
+            </div>
+            <div>Poze informative:</div>
+            <img src="atecafata.jpg"width="300" height="200">
+            <img src="atecaspate.jpg"width="300" height="200">
+            <img src="atecainterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="ibiza">
+            <div>Probleme frecvente:</div>
+            <div> 1.0 MPI de 75 cai- Livrează în schimb probleme la axul cu came și uzură prematură la ambreiaj.
+                1.2 TSI de 85, 90 si 105 cai-distribuție pe lanț și nu îl vrei, iar al doilea e cu distribuție pe curea și
+                ăla e un motor absolut decent pentru caroseria ușoară a lui Ibiza.
+                1.4 TSI de 140, 150 si 180 cai-de evitat.
+           Toate TDI -EGR înfundat.
+                Chederele slab calitativ.
+                Arcurile față problematice.(necesită verificare).
+                Probleme la cutia automată DSG(Neapărat trebuie verificată cutia dimineață pe răcoare).
+
+            </div>
+            <div>Poze informative:</div>
+            <img src="ibizafata.jpg"width="300" height="200">
+            <img src="ibizaspate.jpg"width="300" height="200">
+            <img src="ibizainterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+
+
+
+
+<div style="display: none;">
+    <div class="m-5">
+        <div id="toyota">
+            <div>Pentru mai multe detalii  și informații suplimentare puteti accesa "serviciu clienti/cere oferta" .</div>
+            <div>
+                <a onclick="toyota(this)" data-choice="yaris" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Toyota Yaris Model 2011-prezent, are un pret în jur de 5.000-12.000€</a>
+                <a onclick="toyota(this)" data-choice="rav4" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Toyota RAV4 Model 2013-2018, are un pret în jur de 5.000-12.000€</a>
+                <a onclick="toyota(this)" data-choice="land" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Toyota Land Cruiser Model 2008-2016, are un pret în jur de 10.000-25.000€</a>
+                <a onclick="toyota(this)" data-choice="corolla" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Toyota Corolla Model 2007-2015, are un pret în jur de 3.500-12.000€</a>
+                <a onclick="toyota(this)" data-choice="prius" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Toyota Prius Model 2009-2015, are un pret în jur de 4.000-14.500€</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="yaris">
+            <div>În continuare cea mai mare problemă a lui Toyota Yaris III
+                rămâne cutia automată de tip CVT.
+                Vizibilitatea aproape inexistentă pe timp de noapte.
+                Benzină:
+                1.0 1KR-FE de 67 cai –Probleme cu pompă de ulei
+                1.33 de 100 cai -problema cu uleiul,
+                ocazional se înfundă EGR-ul, câteodată se strică
+                pompa de apă și la frig refuză să pornească.
+                Motorină:
+                1.4 1ND-TV de 87 cai –probleme la garnitura de chiulasa, turbină și consumul de ulei,
+                probleme suplimentare la filtrul de particule.
+            </div>
+            <div>Poze informative:</div>
+            <img src="yarisfata.jpg"width="300" height="200">
+            <img src="yarisspate.jpg"width="300" height="200">
+            <img src="yarisinterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="rav4">
+            <div>Probleme frecvente:</div>
+            <div> Motoarele diesel sunt foarte sensibile la condusul urban,
+                filtrul de particule și EGR-ul infundandu-se imediat.
+                Toyota Rav4 XA40 s-ar putea să vină fără roată de rezervă.
+                Sistemul de navigație de pe Toyota Rav4 XA40 este slab.
+                Benzină:
+                2.0 3ZR-FAE de 151 cai –se strică pompă de apă, consum de ulei
+                2.5 2AR-FE de 178 cai –acest benzinar aspirat este unul
+                dintre puținele motoare fără probleme, exceptând ocazionalele
+                problem la pompă de apă.
+                Diesel:
+                2.0 2WW de 122 cai –problemele cu lanțul de distribuție.
+                2.2 2AD-FTV și 2AD-FHV de 150 cai –aceste motoare sunt total neadecvate condusului
+                în mediu urban așa că gândește-te bine înainte să îl cumperi.
+            </div>
+            <div>Poze informative:</div>
+            <img src="rav4fata.jpg"width="300" height="200">
+            <img src="rav4spate.jpg"width="300" height="200">
+            <img src="rav4interior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="land">
+            <div>Probleme frecvente:</div>
+            <div> Problemele clasice la coloana direcție și la sistemul infotainment.
+                Mare grijă la pompă de apă și consumul de ulei.
+                Problema suspensie,frâne,anvelope datorită greutății,fiabilă, dar întreținere scumpă.
+                Mare atenție la rugină și lovituri, în special pe dedesubt.
+                Land Cruiser-ul este notoriu pentru consumul de carburant, indiferent ce motorizare alegi.
+                Pentru benzină recomand 4.0 V6-ele de 240 cai iar pentru diesel fabulosul 4.5 Twin-Turbo V8 de 272 cai,
+                deși cel mai probabil vei cumpără un 3.0 D-4D de 163 de cai.
+            </div>
+            <div>Poze informative:</div>
+            <img src="landfata.jpg"width="300" height="200">
+            <img src="landspate.jpg"width="300" height="200">
+            <img src="landinterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="prius">
+            <div>Probleme frecvente:</div>
+            <div>  Problemele clasice la coloana direcție și la sistemul infotainment.
+                Nu trebuie să îi dai curent pe direct ca la o mașină normală, ci trebuie să
+                folosești un trickle charger.
+                Impachetata cu tehnologie prin toate colțurile posibile. Iar asta se traduce simplu
+                că în caz de accident ai șanse destul de mari  să primești dauna economică pentru că e
+                o mașină foarte complexă și piesele sunt rare și scumpe.
+                Benzinarul de 1.8 și motorul electric sunt de departe cea mai bună alegere dintre toate motorizările.
+            </div>
+            <div>Poze informative:</div>
+            <img src="priusfata.jpg"width="300" height="200">
+            <img src="priusspate.jpg"width="300" height="200">
+            <img src="priusinterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="corolla">
+            <div>Probleme frecvente:</div>
+            <div> Mare grijă la pompă de apă și consumul de ulei.
+                Rolele de la cureaua de accesorii se rupe repede.
+                Coloana de direcție este o problema recurentă la Toyota.
+                Insonorizarea e un alt subiect notoriu pentru Toyota,
+                iar nivelul de zgomot la Corolla se simte acest lucru.
+                Recomand pentru benzinar clar 1.6 MPI de 124 de cai iar pentru diesel clar 2.0 D-4D.
+            </div>
+            <div>Poze informative:</div>
+            <img src="corollafata.jpg"width="300" height="200">
+            <img src="corollaspate.jpg"width="300" height="200">
+            <img src="corollainterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+
+
+<div style="display: none;">
+    <div class="m-5">
+        <div id="ford">
+            <div>Pentru mai multe detalii  și informații suplimentare puteti accesa "serviciu clienti/cere oferta" .</div>
+            <div>
+                <a onclick="ford(this)" data-choice="focus" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Ford Focus Model 2011-2018, are un pret în jur de 5.000-12.000€</a>
+                <a onclick="ford(this)" data-choice="mondeo" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Ford Mondeo Model 2008-prezent, are un pret în jur de 6.500-23.000€</a>
+                <a onclick="ford(this)" data-choice="ranger" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Ford Ranger Model 2008-prezent, are un pret în jur de 5.000-12.000€</a>
+                <a onclick="ford(this)" data-choice="fiesta" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Ford Fiesta Model 2008-prezent, are un pret în jur de 5.000-12.000€</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="focus">
+            <div>Probleme frecvente:</div>
+            <div> Aparent CD player-ul are tendința să se încingă repede.
+                Plouă în mașină.
+                A două problema majoră a fost la ambreiaj, unde cilindrul hidraulic al ambreiajului.
+                Problema mare este că toate modelele Ford Focus III sunt afectate, nu doar 1.0 EcoBoost.
+                Cutiile automate care sunt și ele pline de probleme.
+            </div>
+            <div>Poze informative:</div>
+            <img src="focusfata.jpg"width="300" height="200">
+            <img src="focusspate.jpg"width="300" height="200">
+            <img src="focusinterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="mondeo">
+            <div>Probleme frecvente:</div>
+            <div>
+                Electrica.
+                2.0 TDCI- pompa de ulei.
+                Cutia automată de tip PowerShif.
+            </div>
+            <div>Poze informative:</div>
+            <img src="mondeofata.jpg"width="300" height="200">
+            <img src="mondeospate.jpg"width="300" height="200">
+            <img src="mondeointerior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="ranger">
+            <div>Probleme frecvente:</div>
+            <div>  Incendiul la catalizator datorat paielor,
+                motoarele diesel 2.2 TDCI și 3.2 TDCi cu grave probleme la capitolul injecție
+                , rechemări precum axul cardanic sau fixarea improprie a banchetei spate.
+
+                Una dintre cele mai serioase probleme este cea găsită la cutia de viiteze automată
+                cu 6 trepte care în anumite cazuri poate bloca întreagă transmisie chiar în mers,
+                moment care poate duce la un accidente rutier.
+
+            </div>
+            <div>Poze informative:</div>
+            <img src="rangerfata.jpg"width="300" height="200">
+            <img src="rangerspate.jpg"width="300" height="200">
+            <img src="rangerinterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="fiesta">
+            <div>Probleme frecvente:</div>
+            <div> Piesele interioare scârțâie.
+
+                Discurile de frână ale mașinilor cu motorizarea de 1.25 sunt predispuse la stricare.
+
+                Una dintre cele mai serioase probleme este cea găsită la cutia de viiteze automată
+                cu 6 trepte care în anumite cazuri poate bloca întreagă transmisie chiar în mers,
+                moment care poate duce la un accidente rutier.
+            </div>
+            <div>Poze informative:</div>
+            <img src="fiestafata.jpg"width="300" height="200">
+            <img src="fiestaspate.jpg"width="300" height="200">
+            <img src="fiestainterior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div style="display: none;">
+    <div class="m-5">
+        <div id="audi">
+            <div>Pentru mai multe detalii  și informații suplimentare puteti accesa "serviciu clienti/cere oferta" .</div>
+            <div>
+                <a onclick="audi(this)" data-choice="a4" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Audi A4 Model 2015-prezent, are un pret în jur de 13.000-30.000€</a>
+                <a onclick="audi(this)" data-choice="q5" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Audi Q5 Model 2008-2018, are un pret în jur de 10.000-24.000€</a>
+                <a onclick="audi(this)" data-choice="a7" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Audi A7 Model 2010-2018, are un pret în jur de 15.000-45.000€</a>
+                <a onclick="audi(this)" data-choice="a5" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Audi A5 Model 2007-2016, are un pret în jur de 7.500-25.000€</a>
+                <a onclick="audi(this)" data-choice="a6" class="choice1" style=" border: solid 1px blue; border-radius: 10px; border-color: blue;color: blue; font-weight: bold;margin: 4px; padding: 2px 6px; display: inline-block; cursor: pointer;">Audi A6 Model 2010-2018, are un pret în jur de 6.000-30.000€</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="a4">
+            <div>Probleme frecvente:</div>
+            <div>  Calitatea materialelor interioare de pe A4 B8.
+                Electricele sunt un alt punct slab. </div>
+            <div>    Motoarele diesel au probleme clasice la volantă, EGR,
+                filtru de particule și instalația AdBlue.</div>
+           <div>   Pentru benzină recomand superbul 2.0 TFSI de 190 de cai iar pentru diesel
+                domolul 2.0 TDI de 150 de cai e cea mai potrivită alegere.
+            </div>
+            <div>Poze informative:</div>
+            <img src="a4fata.jpg"width="350" height="200">
+            <img src="a4spate.jpg"width="350" height="200">
+            <img src="a4interior.jpg"width="350" height="200">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="a5">
+            <div>Probleme frecvente:</div>
+            <div> Motoarele benzinare cod EA888, 1.8 TFSI și 2.0 TFSI suferă de probleme ale
+                intinzatorului lanțului de distribuție.
+                La fel că la BMW E39, dieselurile de 2.7 și 3.0 TDI au probleme cu clapetele de
+                admisie care se rup, cad în galeria de admisie.
+                Cutia de viteze este de 4 tipuri pe Audi A5 8T. Pentru modelele cu tracțiune față,
+                cutia automată este de tip CVT, nume de cod „Multitronic”,
+                 o cutie automată plină de probleme pe care ai face mai bine să o eviți.
+                Mai este cutia automată de tip S-Tronic, practic DSG-ul de la Audi.
+                Uleiul și filtrul trebuie schimbat la fiecare 60.000 de km, altfel vei avea probleme.
+                Farurile vin cu tehnologie LED cu fiabilitate îndoielnică.
+                Electricele de orice tip au tendința să se prăjească.
+                Spațiul din spate este foarte înghesuit datorită plafonului curbat.
+                Canalul de drenaj de sub parbriz are obiceiul să se înfunde și îți va ploua în motor,
+                pe lângă ECU.
+            </div>
+            <div>Poze informative:</div>
+            <img src="a5fata.jpg"width="300" height="200">
+            <img src="a5spate.jpg"width="300" height="200">
+            <img src="a5interior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="a6">
+            <div>Probleme frecvente:</div>
+            <div> Generația această de Audi motoarele 2.0 TFSI și 3.0 TFSI consumă ulei.
+                Cutia de viteze automată de tip S-Tronic   (DSG) este de generație nouă și are probleme mai puține.
+                Trebuie schimbat uleiul și filtrul la fiecare 60.000 de km.
+                Audi A7 4G și A6 C7(cu perne de aer) problema este doar la bucșele bascule care au o
+                durata de viață.
+                Frână electrică standard vine cu vestitul motoraș care se strică
+
+
+            </div>
+            <div>Poze informative:</div>
+            <img src="a6fata.jpg"width="300" height="200">
+            <img src="a6spate.jpg"width="300" height="200">
+            <img src="a6interior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="a7">
+            <div>Probleme frecvente:</div>
+            <div>
+                Generația această de Audi motoarele 2.0 TFSI și 3.0 TFSI consumă ulei.Faceliftul din 2014 a redus semnificativ problema.
+                Cutia de viteze automată de tip S-Tronic   (DSG) este de generație nouă și are probleme mai puține.
+                Trebuie schimbat uleiul și filtrul la fiecare 60.000 de km.
+                Audi A7 4G și A6 C7(cu perne de aer) problema este doar la bucșele bascule care au o
+                durata de viață.
+                Capacul de la rezervor este acționat electronic, se strică și nu mai poți alimenta.
+                Frână electrică standard vine cu vestitul motoraș care se strică.
+
+            </div>
+            <div>Poze informative:</div>
+            <img src="a7fata.jpg"width="300" height="200">
+            <img src="a7spate.jpg"width="300" height="200">
+            <img src="a7interior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <div class="m-5">
+        <div id="q5">
+            <div>Probleme frecvente:</div>
+            <div> Cutia de viteze automată de tip S-Tronic   (DSG) este de generație nouă și are probleme mai puține.
+                Trebuie schimbat uleiul și filtrul la fiecare 60.000 de km.
+                Problemele electrice sunt prezente peste tot în mașină, de la unitatea MMI până la geamurile electrice.
+                Chestiune specifică mașinilor care au sistem Quattro / 4×4, anvelopele trebuie
+                fie identice că și marca, dimensiuni și uzură.
+
+            </div>
+            <div>Poze informative:</div>
+            <img src="q5fata.jpg"width="300" height="200">
+            <img src="q5spate.jpg"width="300" height="200">
+            <img src="q5interior.jpg"width="300" height="100">
+        </div>
+    </div>
+</div>
+
+
+<!--nevoile-->
+
+<section>
+    <div style="display:none;float: left;">
+
+        <div class="container" id="oferta">
+            <form action="https://formspree.io/f/mbjqjzoj" method="Post">
+                <div class="form-group" style="margin-bottom: 5px">
+
+                    <label for="prenume"> Prenume:</label>
+                    <input type="text" id="prenume" name="prenume" style="float: right;border-radius:8px;margin-bottom: -2px">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px">
+                    <label for="numeFamilie">Nume de familie:</label>
+                    <input type="text" id="numeFamilie" name="numeFamilie" style="float: right;border-radius:8px;margin-bottom: -2px">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px">
+                    <label for="tel">Numar telefon:</label>
+                    <input type="text" id="tel" name="tel" style="float: right;border-radius:8px;margin-bottom: -2px">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email1" style="float: right;border-radius:8px;margin-bottom: 5px">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px">
+                    <label for="mesaj" style="margin-bottom: 10px">Mesaj:</label>
+                    <textarea name="mesaj" id="mesaj" cols="30" rows="8" style="float: right;border-radius:8px;margin-bottom: 5px"></textarea>
+                </div>
+                <div class="form-group" style="margin-bottom: 5px">
+                <input type="text" name="spam" style="display:none" />
+                </div>
+                <button type="submit" id="but1" style="border-radius:5px;background-color: yellow;font-size:20px">Trimite</button>
+            </form>
+        </div>
+    </div>
+
+</section>
+
+<div style="display: none;">
+    <div class="m-5">
+        <div id="nelamuriri">
+            <div>Puteti scrie in continuare ce va intereseaza, iar noi vom incerca sa va ajutam.</div>
+
+            <p id="chatLog" style="color:red;font-weight: bold">- - Dealership-CHAT - -<br></p>
+            <input id="userBox" style="color:red" type="text" onkeydown="if (event.keyCode == 13) {talk()}">
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+</body>
+</html>
